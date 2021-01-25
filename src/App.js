@@ -1,25 +1,48 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import ListContainer from "./components/listContainer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const mockTodos = [
+        {
+            id: 1,
+            name: 'task 1',
+            description: 'Finish coding challenge',
+            isComplete: false,
+            completeBy: 1611594267769,
+        },
+        {
+            id: 2,
+            name: 'task 2',
+            description: 'Some other task',
+            isComplete: false,
+            completeBy: 1611594267769,
+        },
+        {
+            id: 3,
+            name: 'task 3',
+            description: 'last task',
+            isComplete: true,
+            completeBy: null,
+        }
+    ]
+    const [todos, setTodos] = useState(mockTodos);
+
+    const addTodo = () => {};
+
+    const editTodo = () => {};
+
+    const deleteTodo = () => {};
+
+    const completeTodo = () => {};
+
+    const incompleteTodo = () => {};
+
+    return (
+        <div className="App">
+            <ListContainer todos={todos} />
+        </div>
+    );
 }
 
 export default App;
