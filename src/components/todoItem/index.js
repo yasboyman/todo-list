@@ -21,10 +21,6 @@ const TodoItem = ({ todo, submitEdit, submitEditIsComplete, submitDelete }) => {
         })
     };
 
-    const changeComplete = () => {
-        submitEditIsComplete(todoItem.id)
-    };
-
     const changeDate = (date) => {
         setTodoItem({
             ...todo,
@@ -58,9 +54,20 @@ const TodoItem = ({ todo, submitEdit, submitEditIsComplete, submitDelete }) => {
                 </>
             }
 
-            <div style={{ display: 'flex', flexDirection: 'row'}}>
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                 <Text>Complete</Text>
-                <input type="checkbox" checked={todo.isComplete} onChange={changeComplete}/>
+                <div
+                    style={{
+                        width: '16px',
+                        height: '16px',
+                        backgroundColor: todo.isComplete ? 'green' : 'white',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                        margin: '4px',
+                        border: '1px solid black'
+                    }}
+                    onClick={() => submitEditIsComplete(todoItem.id)}
+                />
             </div>
             <div style={{ display: 'flex', flexDirection: 'row'}}>
                 <button onClick={onEdit}>{isEdit ? 'Save': 'Edit'}</button>
