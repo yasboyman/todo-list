@@ -1,32 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import ListContainer from "./components/listContainer";
+import CreateTodo from "./components/CreateTodo";
+import axios from "axios";
 
 const App = () => {
-    const mockTodos = [
-        {
-            id: 1,
-            name: 'task 1',
-            description: 'Finish coding challenge',
-            isComplete: false,
-            completeBy: 1611594267769,
-        },
-        {
-            id: 2,
-            name: 'task 2',
-            description: 'Some other task',
-            isComplete: false,
-            completeBy: 1611594267769,
-        },
-        {
-            id: 3,
-            name: 'task 3',
-            description: 'last task',
-            isComplete: true,
-            completeBy: null,
-        }
-    ]
-    const [todos, setTodos] = useState(mockTodos);
+    const [todos, setTodos] = useState([]);
 
     const addTodo = () => {};
 
@@ -38,9 +17,29 @@ const App = () => {
 
     const incompleteTodo = () => {};
 
+
+    const fetchTodos = () => axios.get('http://localhost:3000/getTodos')
+
+    useEffect(() => {
+        fetchTodos().then(res => setTodos(res.data.todos))
+    }, [])
+
+    const submitCreate = (todo) => {
+        axios.post('http://localhost:3000/createTodo', todo).then(res => {
+            fetchTodos().then(res => setTodos(res.data.todos))
+        })
+    }
+
+    const submitEdit = (todo) => {
+        axios.put(`http://localhost:3000/editTodo`, todo).then(res => {
+            fetchTodos().then(res => setTodos(res.data.todos))
+        })
+    }
+
     return (
         <div className="App">
-            <ListContainer todos={todos} />
+            <CreateTodo submitCreate={submitCreate} />
+            <ListContainer todos={todos} submitEdit={submitEdit} />
         </div>
     );
 }

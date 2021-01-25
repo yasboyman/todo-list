@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import Text from "../Text";
 import "react-datepicker/dist/react-datepicker.css";
 
-const TodoItem = ({ todo }) => {
+const TodoItem = ({ todo, submitEdit }) => {
     const [todoItem, setTodoItem] = useState(todo)
     const [isEdit, setIsEdit] = useState(false)
 
@@ -29,8 +29,6 @@ const TodoItem = ({ todo }) => {
     };
 
     const changeDate = (date) => {
-        console.log('date', date.getTime())
-
         setTodoItem({
             ...todo,
             completeBy: date.getTime(),
@@ -42,6 +40,10 @@ const TodoItem = ({ todo }) => {
         return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
     }
 
+    const onEdit = () => {
+        isEdit ? submitEdit(todoItem) : setIsEdit(isEdit => !isEdit);
+        isEdit && setIsEdit(isEdit => !isEdit);
+    }
 
     return (
         <div style={{ display: 'flex', margin: '20px', padding: '10px', flexDirection: 'column', alignItems: 'left', justifyContent: 'center', backgroundColor: 'whitesmoke', height: '120px', width: '400px', borderRadius: '4px'}}>
@@ -59,14 +61,12 @@ const TodoItem = ({ todo }) => {
                 </>
             }
 
-
-
             <div style={{ display: 'flex', flexDirection: 'row'}}>
                 <Text>Complete</Text>
                 <input type="checkbox" checked={todoItem.isComplete} onChange={changeComplete}/>
             </div>
             <div style={{ display: 'flex', flexDirection: 'row'}}>
-                <button onClick={() => setIsEdit(isEdit => !isEdit)}>{isEdit ? 'Save': 'Edit'}</button>
+                <button onClick={onEdit}>{isEdit ? 'Save': 'Edit'}</button>
                 <button>Delete</button>
             </div>
         </div>
