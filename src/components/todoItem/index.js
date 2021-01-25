@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import Text from "../Text";
 import "react-datepicker/dist/react-datepicker.css";
 
-const TodoItem = ({ todo, submitEdit }) => {
+const TodoItem = ({ todo, submitEdit, submitEditIsComplete, submitDelete }) => {
     const [todoItem, setTodoItem] = useState(todo)
     const [isEdit, setIsEdit] = useState(false)
 
@@ -22,10 +22,7 @@ const TodoItem = ({ todo, submitEdit }) => {
     };
 
     const changeComplete = () => {
-        setTodoItem({
-            ...todo,
-            isComplete: !todoItem.isComplete,
-        })
+        submitEditIsComplete(todoItem.id)
     };
 
     const changeDate = (date) => {
@@ -63,11 +60,11 @@ const TodoItem = ({ todo, submitEdit }) => {
 
             <div style={{ display: 'flex', flexDirection: 'row'}}>
                 <Text>Complete</Text>
-                <input type="checkbox" checked={todoItem.isComplete} onChange={changeComplete}/>
+                <input type="checkbox" checked={todo.isComplete} onChange={changeComplete}/>
             </div>
             <div style={{ display: 'flex', flexDirection: 'row'}}>
                 <button onClick={onEdit}>{isEdit ? 'Save': 'Edit'}</button>
-                <button>Delete</button>
+                <button onClick={() => submitDelete(todo.id)}>Delete</button>
             </div>
         </div>
     );

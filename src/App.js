@@ -36,10 +36,22 @@ const App = () => {
         })
     }
 
+    const submitEditIsComplete = (id) => {
+        axios.put(`http://localhost:3000/editComplete`, { id }).then(res => {
+            fetchTodos().then(res => setTodos(res.data.todos))
+        })
+    }
+
+    const submitDelete = (id) => {
+        axios.delete(`http://localhost:3000/deleteTodo/${id}`, { id }).then(res => {
+            fetchTodos().then(res => setTodos(res.data.todos))
+        })
+    }
+
     return (
         <div className="App">
             <CreateTodo submitCreate={submitCreate} />
-            <ListContainer todos={todos} submitEdit={submitEdit} />
+            <ListContainer todos={todos} submitEdit={submitEdit} submitEditIsComplete={submitEditIsComplete} submitDelete={submitDelete} />
         </div>
     );
 }

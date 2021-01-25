@@ -30,10 +30,19 @@ app.post('/createTodo', jsonParser, (req, res) => {
 
 app.put('/editTodo', jsonParser, (req, res) => {
     todos = todos.map(todo => todo.id === req.body.id ? req.body : todo)
-    res.send('successfully updated todos')
+    res.send('successfully updated todo')
 })
 
+app.put('/editComplete', jsonParser, (req, res) => {
+    todos = todos.map(todo => todo.id === req.body.id ? {...todo, isComplete: !todo.isComplete} : todo)
+    res.send('successfully updated todo')
+})
 
+app.delete('/deleteTodo/:id', jsonParser, (req, res) => {
+    console.log('params', req.params)
+    todos = todos.filter(todo => todo.id !== req.params.id)
+    res.send('successfully deleted todo')
+})
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
