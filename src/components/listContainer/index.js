@@ -1,6 +1,8 @@
 import React from 'react';
 import TodoItem from "../todoItem";
 
+// Receives data from back-end--  Containers sends via props to todoItem //
+
 const ListContainer = ({ todos, submitEdit, submitEditIsComplete, submitDelete }) => {
     return (
         <div
@@ -12,6 +14,9 @@ const ListContainer = ({ todos, submitEdit, submitEditIsComplete, submitDelete }
                 height: '100%', width: '100%'
             }}
         >
+
+            {/*// maps through the data recieved and renders into UI*/}
+
             {todos.map(todo =>
                 <TodoItem
                     key={todo.id}

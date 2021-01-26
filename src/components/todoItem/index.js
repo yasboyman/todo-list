@@ -3,6 +3,8 @@ import DatePicker from "react-datepicker";
 import Text from "../Text";
 import "react-datepicker/dist/react-datepicker.css";
 
+// receives data from listContainer via props - renders to the UI - encompassed/ child of listContainer
+
 const TodoItem = ({ todo, submitEdit, submitEditIsComplete, submitDelete }) => {
     const [todoItem, setTodoItem] = useState(todo)
     const [isEdit, setIsEdit] = useState(false)
@@ -61,7 +63,7 @@ const TodoItem = ({ todo, submitEdit, submitEditIsComplete, submitDelete }) => {
                 </>
                 :
                 <>
-                    <Text isTitle> {todoItem.name}</Text>
+                    <Text isTitle > {todoItem.name}</Text>
                     <Text>{todoItem.description}</Text>
                     {todoItem.completeBy && <Text>Complete by: {getDate()}</Text>}
                 </>
