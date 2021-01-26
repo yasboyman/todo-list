@@ -8,15 +8,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 40px;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
 
 .todo-box{
-  box-shadow: 4px 4px black;
+  box-shadow: 10px 10px black;
   animation: shadow-inset-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  border: 1px solid black;
 
 }
 
@@ -102,16 +104,15 @@
 .showCreate-div{
   display: flex;
   margin: 20px;
-  padding: 10px;
+  padding: 40px 20px;
   flex-direction: column;
   justify-content: center;
-  background: #c2e59c;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #64b3f4, #c2e59c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #ffffe1;
   height: 120px;
-  width: 400px;
+  width: 300px;
   border-radius: 4px;
-
+  box-shadow: 1px 1px black;
+  border: 1px solid black;
 }
 
 .create-todo-submit{
@@ -124,15 +125,9 @@
 }
 
 
-.save-OR-edit-button {
-  box-shadow: 1px 1px;
+.todo-action-button {
   border-radius: 4px;
-
+  height: 40px;
+  width: 60px;
+  background: white;
 }
-
-.delete-button{
-  box-shadow: 1px 1px;
-  border-radius: 4px;
-}
-
-

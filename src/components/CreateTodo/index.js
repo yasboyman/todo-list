@@ -58,8 +58,8 @@ const CreateTodo = ({ submitCreate }) => {
                     <DatePicker selected={todo.completeBy} onChange={date => changeDate(date)} />
                 </div>
                 <div style={{ display: 'flex', justifyContent: "space-evenly" }}>
-                    <button onClick={onSubmit} disabled={!todo.name.length}>Create</button>
-                    <button onClick={() => setShowCreate(showCreate => !showCreate)}>Cancel</button>
+                    <button className={'todo-action-button'} onClick={onSubmit} disabled={!todo.name.length}>Create</button>
+                    <button className={'todo-action-button'} onClick={() => setShowCreate(showCreate => !showCreate)}>Cancel</button>
                 </div>
             </div>
             }

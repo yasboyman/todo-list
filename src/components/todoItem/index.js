@@ -51,7 +51,8 @@ const TodoItem = ({ todo, submitEdit, submitEditIsComplete, submitDelete }) => {
                 alignItems: 'left',
                 justifyContent: 'center',
                 backgroundColor: 'whitesmoke',
-                height: '120px', width: '400px',
+                height: isEdit? '180px' : '140px',
+                width: '300px',
                 borderRadius: '4px',
             }}
         >
@@ -84,12 +85,12 @@ const TodoItem = ({ todo, submitEdit, submitEditIsComplete, submitDelete }) => {
                     onClick={() => submitEditIsComplete(todoItem.id)}
                 />
             </div>
-            <div style={{ display: 'flex', flexDirection: 'row'}}>
+            <div style={{ display: 'flex', flexDirection: 'row',  justifyContent: "space-evenly"}}>
                 <button
-                    className={'save-OR-edit-button'}
+                    className={'todo-action-button'}
                          onClick={onEdit}>{isEdit ? 'Save': 'Edit'}</button>
                 <button
-                    className={'delete-button'}
+                    className={'todo-action-button'}
                         onClick={() => submitDelete(todo.id)}>Delete</button>
             </div>
         </div>
