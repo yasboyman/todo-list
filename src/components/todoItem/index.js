@@ -39,7 +39,9 @@ const TodoItem = ({ todo, submitEdit, submitEditIsComplete, submitDelete }) => {
     }
 
     return (
-        <div style={{ display: 'flex', margin: '20px', padding: '10px', flexDirection: 'column', alignItems: 'left', justifyContent: 'center', backgroundColor: 'whitesmoke', height: '120px', width: '400px', borderRadius: '4px'}}>
+        <div
+            className={'todo-box'}
+            style={{ display: 'flex', margin: '20px', padding: '10px', flexDirection: 'column', alignItems: 'left', justifyContent: 'center', backgroundColor: 'whitesmoke', height: '120px', width: '400px', borderRadius: '4px', }}>
             {isEdit ?
                 <>
                     <input value={todoItem.name} onChange={changeName}/>
@@ -70,8 +72,10 @@ const TodoItem = ({ todo, submitEdit, submitEditIsComplete, submitDelete }) => {
                 />
             </div>
             <div style={{ display: 'flex', flexDirection: 'row'}}>
-                <button onClick={onEdit}>{isEdit ? 'Save': 'Edit'}</button>
-                <button onClick={() => submitDelete(todo.id)}>Delete</button>
+                <button  style={{borderRadius: '41px'}}
+                         onClick={onEdit}>{isEdit ? 'Save': 'Edit'}</button>
+                <button style={{borderRadius: '41px'}}
+                        onClick={() => submitDelete(todo.id)}>Delete</button>
             </div>
         </div>
     );

@@ -11,6 +11,11 @@ app.use(cors());
 app.options('*', cors());
 let todos = []
 
+app.get('/', (req, res) => {
+    res.send('hello test!!!!!!')
+})
+
+
 app.get('/getTodos', (req, res) => {
     res.json({ todos })
 })
@@ -37,5 +42,5 @@ app.delete('/deleteTodo/:id', jsonParser, (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(` Server started at:${port}`)
 })
