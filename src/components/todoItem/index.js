@@ -85,9 +85,11 @@ const TodoItem = ({ todo, submitEdit, submitEditIsComplete, submitDelete }) => {
                 />
             </div>
             <div style={{ display: 'flex', flexDirection: 'row'}}>
-                <button  style={{borderRadius: '41px'}}
+                <button
+                    className={'save-OR-edit-button'}
                          onClick={onEdit}>{isEdit ? 'Save': 'Edit'}</button>
-                <button style={{borderRadius: '41px'}}
+                <button
+                    className={'delete-button'}
                         onClick={() => submitDelete(todo.id)}>Delete</button>
             </div>
         </div>

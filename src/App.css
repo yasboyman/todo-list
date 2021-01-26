@@ -105,4 +105,15 @@
 }
 
 
+.save-OR-edit-button {
+  box-shadow: 1px 1px;
+  border-radius: 4px;
+
+}
+
+.delete-button{
+  box-shadow: 1px 1px;
+  border-radius: 4px;
+}
+
 

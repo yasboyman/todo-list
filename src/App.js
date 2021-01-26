@@ -13,12 +13,14 @@ const App = () => {
         fetchTodos().then(res => setTodos(res.data.todos))
     }, [])
 
+    //...gets data //
     const fetchTodos = () => axios.get('http://localhost:3001/getTodos');
 
-    const submitCreate = (todo) => {
-        axios.post('http://localhost:3001/createTodo', todo).then(res => setTodos(res.data.todos))
-    }
 
+    const submitCreate = (todo) => {
+        axios.post('http://localhost:3001/createTodo', todo).then(res =>  setTodos(res.data.todos))
+
+    }
 
     const submitEdit = (todo) => {
         axios.put(`http://localhost:3001/editTodo`, todo).then(res => setTodos(res.data.todos))
