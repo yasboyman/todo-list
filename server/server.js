@@ -12,7 +12,7 @@ app.options('*', cors());
 let todos = []
 
 app.get('/', (req, res) => {
-    res.send('hello test!!!!!!')
+    res.send('server is receiving')
 })
 
 

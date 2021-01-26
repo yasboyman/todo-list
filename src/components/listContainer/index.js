@@ -9,7 +9,7 @@ const ListContainer = ({ todos, submitEdit, submitEditIsComplete, submitDelete }
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'flex-start',
-                eight: '100%', width: '100%'
+                height: '100%', width: '100%'
             }}
         >
             {todos.map(todo =>

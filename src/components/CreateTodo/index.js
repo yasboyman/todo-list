@@ -33,30 +33,16 @@ const CreateTodo = ({ submitCreate }) => {
     }
 
     return (
+
+        //Button to start creating To Do //
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             {!showCreate && <button
                 onClick={() => setShowCreate(showCreate => !showCreate)}
-                style={{
-                    height: '60px',
-                    width: '160px',
-                    boxShadow: '1px 1px',
-                    borderRadius: '4px',
-                    fontSize: '22px',
-                    cursor: 'pointer'
-                }}
-            >Create Todo</button>}
-            {showCreate && <div style={{
-                display: 'flex',
-                margin: '20px',
-                padding: '10px',
-                flexDirection: 'column',
-                alignItems: 'left',
-                justifyContent: 'center',
-                backgroundColor: 'lightblue',
-                height: '120px',
-                width: '400px',
-                borderRadius: '4px'
-            }}>
+                className={'showCreate-button'}
+            >Create To-do </button>}
+
+             {/*Div to input To Do if button above is clicked*/}
+            {showCreate && <div className={'showCreate-div'}>
 
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', padding: '4px' }}>
                     <Text>Title: </Text>
