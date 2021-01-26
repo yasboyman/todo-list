@@ -30,7 +30,7 @@ const App = () => {
         axios.put(`http://localhost:3001/editComplete`, { id }).then(res => setTodos(res.data.todos))
     }
 
-    // ************   RES NOT USED ? UNUSED VARIABLE, BUG ***********  //
+    // *parameter  //
     const submitDelete = (id) => {
         axios.delete(`http://localhost:3001/deleteTodo/${id}`, { id }).then(res => {
             fetchTodos().then(res => setTodos(res.data.todos))
