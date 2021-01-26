@@ -1,8 +1,13 @@
 import React from 'react';
 
-const Text = ({ children }) => {
+const Text = ({ children, isTitle }) => {
     return (
-        <div style={{ color: 'black', fontSize: '12px', marginRight: '4px'}}>
+        <div style={{
+            color: 'black',
+            fontSize: isTitle ? '20px' : '12px',
+            marginRight: '4px',
+            fontWeight: isTitle ? 'bold' : 'normal'
+        }}>
             {children}
         </div>
     );

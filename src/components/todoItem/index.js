@@ -41,7 +41,18 @@ const TodoItem = ({ todo, submitEdit, submitEditIsComplete, submitDelete }) => {
     return (
         <div
             className={'todo-box'}
-            style={{ display: 'flex', margin: '20px', padding: '10px', flexDirection: 'column', alignItems: 'left', justifyContent: 'center', backgroundColor: 'whitesmoke', height: '120px', width: '400px', borderRadius: '4px', }}>
+            style={{
+                display: 'flex',
+                margin: '20px',
+                padding: '20px',
+                flexDirection: 'column',
+                alignItems: 'left',
+                justifyContent: 'center',
+                backgroundColor: 'whitesmoke',
+                height: '120px', width: '400px',
+                borderRadius: '4px',
+            }}
+        >
             {isEdit ?
                 <>
                     <input value={todoItem.name} onChange={changeName}/>
@@ -50,7 +61,7 @@ const TodoItem = ({ todo, submitEdit, submitEditIsComplete, submitDelete }) => {
                 </>
                 :
                 <>
-                    <Text> {todoItem.name}</Text>
+                    <Text isTitle> {todoItem.name}</Text>
                     <Text>{todoItem.description}</Text>
                     {todoItem.completeBy && <Text>Complete by: {getDate()}</Text>}
                 </>

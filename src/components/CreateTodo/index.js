@@ -34,7 +34,17 @@ const CreateTodo = ({ submitCreate }) => {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-            {!showCreate && <button onClick={() => setShowCreate(showCreate => !showCreate)}>Create Todo</button>}
+            {!showCreate && <button
+                onClick={() => setShowCreate(showCreate => !showCreate)}
+                style={{
+                    height: '60px',
+                    width: '160px',
+                    boxShadow: '1px 1px',
+                    borderRadius: '4px',
+                    fontSize: '22px',
+                    cursor: 'pointer'
+                }}
+            >Create Todo</button>}
             {showCreate && <div style={{
                 display: 'flex',
                 margin: '20px',
@@ -48,20 +58,20 @@ const CreateTodo = ({ submitCreate }) => {
                 borderRadius: '4px'
             }}>
 
-                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', padding: '4px' }}>
                     <Text>Title: </Text>
                     <input value={todo.name} onChange={(e) => onChangeTodoText(e, 'name')}/>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', padding: '4px' }}>
                     <Text>Description: (optional)</Text>
                     <textarea value={todo.description} onChange={(e) => onChangeTodoText(e, 'description')}/>
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', padding: '4px' }}>
                     <Text>Complete By: (optional) </Text>
                     <DatePicker selected={todo.completeBy} onChange={date => changeDate(date)} />
                 </div>
-                <div style={{ display: 'flex'}}>
+                <div style={{ display: 'flex', justifyContent: "space-evenly" }}>
                     <button onClick={onSubmit} disabled={!todo.name.length}>Create</button>
                     <button onClick={() => setShowCreate(showCreate => !showCreate)}>Cancel</button>
                 </div>
@@ -69,6 +79,6 @@ const CreateTodo = ({ submitCreate }) => {
             }
         </div>
     );
-}
+};
 
 export default CreateTodo;
